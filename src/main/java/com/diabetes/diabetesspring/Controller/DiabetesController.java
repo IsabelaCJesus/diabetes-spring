@@ -1,8 +1,5 @@
 package com.diabetes.diabetesspring.Controller;
 
-import java.util.List;
-import java.util.*;
-
 import com.diabetes.diabetesspring.Model.Dados;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +18,10 @@ public class DiabetesController {
     }
 
     @PostMapping
-    public void calcular(@RequestBody Dados dados){
+    public String calcular(@RequestBody Dados dados){
         SimuladorDiabetesInterventionGroup program = new SimuladorDiabetesInterventionGroup();
         double indiceG = program.executar(dados);
         System.out.println(indiceG);
+        return indiceG+"";
     }
 }

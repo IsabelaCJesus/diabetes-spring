@@ -7,12 +7,12 @@ import lombok.Getter;
 @Getter
 public class Dados {
     
-    private String idade;
-    private String altura;
-    private String peso;
-    private String triglicerideos;
-    private String tempoEvolutivo;
-    private String circunferenciaAbdominal;
-    private String renda;
-    private String escolaridade;
+    private int idade;
+    private float altura;
+    private float peso;
+    private float triglicerideos;
+    private float tempoEvolutivo;
+    private float circunferenciaAbdominal;
+    private float renda;
+    private float escolaridade;
 }

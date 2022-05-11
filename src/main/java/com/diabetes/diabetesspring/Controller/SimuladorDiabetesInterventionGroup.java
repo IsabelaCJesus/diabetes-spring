@@ -1,11 +1,16 @@
-import net.sourceforge.jFuzzyLogic.*;
+package com.diabetes.diabetesspring.Controller;
+
 import com.diabetes.diabetesspring.Model.Dados;
+
+import net.sourceforge.jFuzzyLogic.FIS;
+import net.sourceforge.jFuzzyLogic.FunctionBlock;
+
 import java.lang.Math;
 
 public class SimuladorDiabetesInterventionGroup {
 
 	public double executar(Dados dados) {
-		String nomeArq = "fcl/diabetesFuzzy.fcl";
+		String nomeArq = "diabetesFuzzy.fcl";
 		FIS fis = FIS.load(nomeArq, true);
 		
 		if (fis == null) {
@@ -16,15 +21,15 @@ public class SimuladorDiabetesInterventionGroup {
 		// Obter o bloco padrão de função
 		FunctionBlock fb = fis.getFunctionBlock(null);
 
-        Double imc = Double.parseDouble(dados.getPeso()) / Math.pow(Double.parseDouble(dados.getAltura()),2);
+        Double imc = dados.getPeso() / Math.pow(dados.getAltura(),2);
 
-		fb.setVariable("idade", Double.parseDouble(dados.getIdade()));
-		fb.setVariable("triglicerideos", Double.parseDouble(dados.getTriglicerideos()));
-		fb.setVariable("tempoEvolutivo", Double.parseDouble(dados.getTempoEvolutivo()));
+		fb.setVariable("idade", dados.getIdade());
+		fb.setVariable("triglicerideos", dados.getTriglicerideos());
+		fb.setVariable("tempoEvolutivo", dados.getTempoEvolutivo());
 		fb.setVariable("IMC", imc);
-		fb.setVariable("circunferenciaAbdominal", Double.parseDouble(dados.getCircunferenciaAbdominal()));
-		fb.setVariable("renda", Double.parseDouble(dados.getRenda()));
-		fb.setVariable("escolaridade", Double.parseDouble(dados.getEscolaridade()));
+		fb.setVariable("circunferenciaAbdominal", dados.getCircunferenciaAbdominal());
+		fb.setVariable("renda", dados.getRenda());
+		fb.setVariable("escolaridade", dados.getEscolaridade());
 
 		// Evaluate
 		fb.evaluate();

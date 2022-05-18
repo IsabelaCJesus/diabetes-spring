@@ -7,10 +7,10 @@ import net.sourceforge.jFuzzyLogic.FunctionBlock;
 
 import java.lang.Math;
 
-public class SimuladorDiabetesInterventionGroup {
+public class SimuladorDiabetesComparativeGroup {
 
 	public double executar(Dados dados) {
-		String nomeArq = "diabetesFuzzy.fcl";
+		String nomeArq = "diabetesFuzzyComparationGroup.fcl";
 		FIS fis = FIS.load(nomeArq, true);
 		
 		if (fis == null) {

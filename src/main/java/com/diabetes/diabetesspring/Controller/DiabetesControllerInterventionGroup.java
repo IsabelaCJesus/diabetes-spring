@@ -17,10 +17,10 @@ public class DiabetesControllerInterventionGroup {
     }*/
 
     @PostMapping
-    public String calcularInterventionGroup(@RequestBody Dados dados){
+    public Double calcularInterventionGroup(@RequestBody Dados dados){
         SimuladorDiabetesInterventionGroup program = new SimuladorDiabetesInterventionGroup();
         double indiceG = program.executar(dados);
        // System.out.println(indiceG);
-        return indiceG+"";
+        return indiceG;
     }
 }

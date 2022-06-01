@@ -20,7 +20,7 @@ public class DiabetesControllerComparativeGroup {
     public Double calcularComparativeGroup(@RequestBody Dados dados){
         SimuladorDiabetesComparativeGroup program = new SimuladorDiabetesComparativeGroup();
         double indiceG = program.executar(dados);
-        System.out.println(indiceG);
+        //System.out.println(indiceG);
         return indiceG;
     }
 }
